@@ -25,6 +25,3 @@ workflows:
             exit 1
           fi
           xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" -destination "$XCODE_DESTINATION" clean build
-    publishing:
-      email:
-        enabled: false
