@@ -25,6 +25,7 @@ targets:
     sources:
       - path: .
         excludes:
+          - .git
           - README.md
           - codemagic.yaml
           - project.yml

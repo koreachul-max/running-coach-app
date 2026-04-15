@@ -6,7 +6,7 @@ workflows:
       vars:
         XCODE_PROJECT: "RunningCoachApp.xcodeproj"
         XCODE_SCHEME: "RunningCoachApp"
-        XCODE_DESTINATION: "platform=iOS Simulator,name=iPhone 15,OS=17.4"
+        XCODE_DESTINATION: "generic/platform=iOS Simulator"
     scripts:
       - name: Install XcodeGen
         script: |
