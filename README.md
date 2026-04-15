@@ -1,3 +1,4 @@
+ HEAD
 # Running Coach App
 
 SwiftUI iOS app for:
@@ -62,3 +63,6 @@ To install on an actual iPhone, you will still need:
 - TestFlight or another signing-based install path
 
 The current workflow is set up first to validate and build the app project cleanly in Codemagic.
+
+# running-coach-app
+>>>>>>> 6c0df287a3eee6790354725b4bdf0bf35bf7212e
