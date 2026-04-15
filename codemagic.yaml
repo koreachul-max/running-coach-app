@@ -1,0 +1,30 @@
+workflows:
+  ios_build:
+    name: iOS Build
+    max_build_duration: 60
+    environment:
+      vars:
+        XCODE_PROJECT: "RunningCoachApp.xcodeproj"
+        XCODE_SCHEME: "RunningCoachApp"
+        XCODE_DESTINATION: "platform=iOS Simulator,name=iPhone 15,OS=17.4"
+    scripts:
+      - name: Install XcodeGen
+        script: |
+          brew install xcodegen
+      - name: Generate Xcode project
+        script: |
+          xcodegen generate
+      - name: Build app
+        script: |
+          echo "Starting build"
+          echo "Project: $XCODE_PROJECT"
+          echo "Scheme: $XCODE_SCHEME"
+          if [ ! -d "$XCODE_PROJECT" ]; then
+            echo "Missing Xcode project: $XCODE_PROJECT"
+            echo "Make sure project.yml exists and xcodegen completed successfully."
+            exit 1
+          fi
+          xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" -destination "$XCODE_DESTINATION" clean build
+    publishing:
+      email:
+        enabled: false
